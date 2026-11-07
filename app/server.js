@@ -11,7 +11,8 @@ const sessions = [
   { id: 1, time: '10:00', room: 'Main', title: 'Kickoff and sponsor talks' },
   { id: 2, time: '11:00', room: 'Everywhere', title: 'Build' },
   { id: 3, time: '14:00', room: 'Main', title: 'Panel' },
-  { id: 4, time: '17:30', room: 'Main', title: 'Submissions close' },
+  { id: 4, time: '16:00', room: 'Workshop', title: 'Radar AI SRE deep dive' },
+  { id: 5, time: '17:30', room: 'Main', title: 'Submissions close' },
 ];
 
 const server = http.createServer((req, res) => {
@@ -29,6 +30,10 @@ const server = http.createServer((req, res) => {
   if (url.pathname === '/api/sessions') {
     res.writeHead(200, { 'content-type': 'application/json' });
     return res.end(JSON.stringify({ version, sessions }));
+  }
+  if (url.pathname === '/api/stats') {
+    res.writeHead(200, { 'content-type': 'application/json' });
+    return res.end(JSON.stringify({ version, team, sessionCount: sessions.length }));
   }
   if (url.pathname === '/') {
     res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
