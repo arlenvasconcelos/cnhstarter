@@ -5,16 +5,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: app
-  namespace: team-__TEAM__
+  namespace: team-arlen-test-kubecon
 spec:
-  project: team-__TEAM__
+  project: team-arlen-test-kubecon
   source:
-    repoURL: https://github.com/OWNER/REPO.git
+    repoURL: https://github.com/arlenvasconcelos/cnhstarter.git
     targetRevision: main
     path: deploy
   destination:
     server: https://kubernetes.default.svc
-    namespace: team-__TEAM__
+    namespace: team-arlen-test-kubecon
   syncPolicy:
     automated:
       prune: true
