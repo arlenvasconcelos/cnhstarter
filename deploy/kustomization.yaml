@@ -11,4 +11,4 @@ resources:
 images:
   - name: app
     newName: ghcr.io/arlenvasconcelos/cnhstarter
-    newTag: 488d018
+    newTag: f79a614
